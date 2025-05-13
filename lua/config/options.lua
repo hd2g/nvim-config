@@ -1,17 +1,24 @@
-vim.o.background = "light"
+local opt = vim.o
 
-vim.o.expandtab = true
-vim.o.tabstop = 2
-vim.o.softtabstop = 2
-vim.o.shiftwidth = 2
+opt.background = "light"
 
-vim.o.wrap = false
+opt.expandtab = true
+opt.tabstop = 2
+opt.softtabstop = 2
+opt.shiftwidth = 2
 
-vim.o.ignorecase = true
-vim.o.smartcase = true
+opt.wrap = false
 
-vim.o.cursorline = true
+opt.ignorecase = true
+opt.smartcase = true
 
-vim.o.splitright = true
-vim.o.splitbelow = true
+opt.cursorline = true
 
+opt.splitright = true
+opt.splitbelow = true
+
+opt.hlsearch = false
+opt.swapfile = false
+opt.modeline = false
+
+opt.showtabline = 0
