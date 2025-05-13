@@ -26,9 +26,9 @@ end
 
 function show_severity_level(value)
   if value == vim.diagnostic.severity.ERROR then return "ERROR" end
-  if value == vim.diagnostic.severity.WARN  then return "WARN" end
-  if value == vim.diagnostic.severity.INFO  then return "INFO" end
-  if value == vim.diagnostic.severity.HINT  then return "HINT" end
+  if value == vim.diagnostic.severity.WARN  then return "WARN"  end
+  if value == vim.diagnostic.severity.INFO  then return "INFO"  end
+  if value == vim.diagnostic.severity.HINT  then return "HINT"  end
 
   error("*** Unreachable ***")
 end
@@ -78,6 +78,14 @@ return {
 
       -- Setup for Lua
       -- lspconfig.lua_ls.setup {}
+
+      -- Setup for Rust
+      lspconfig.rust_analyzer.setup {}
+
+      -- Setup for 
+      lspconfig.ts_ls.setup {}
+      lspconfig.cssmodules_ls.setup {}
+      lspconfig.css_variables.setup {}
 
       -- Setup Global diagnostic config
       vim.diagnostic.config {
