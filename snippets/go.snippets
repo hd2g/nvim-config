@@ -1,0 +1,34 @@
+snippet main
+	func main() {
+		$0
+	}
+
+snippet try "Error handling"
+	$1, err := $2
+	if err != nil {
+		${3:return err}
+	}
+	$0
+
+snippet ut "Define unit test function"
+	func Test$1(t *testing.T) {
+		expected := $0
+
+		input :=
+		actual :=
+
+		if (actual != expected) {
+	  	t.Fail()
+		}
+	}
+
+snippet st "struct"
+	type $1 struct {
+		$0
+	}
+
+snippet ie "interface"
+	type $1 interface {
+		$0
+	}
+
