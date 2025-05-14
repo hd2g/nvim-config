@@ -1,5 +1,7 @@
 local map = vim.keymap.set
 
+map('i', 'jj', '<esc>')
+
 -- Window Splittings
 map('n', '-', '<cmd>sp<cr>')
 map('n', '|', '<cmd>vs<cr>')
