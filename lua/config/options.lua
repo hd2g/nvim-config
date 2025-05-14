@@ -12,6 +12,8 @@ set colorcolumn=80,120
 ]]
 
 opt.wrap = false
+opt.textwidth = 0
+opt.formatoptions = "q"
 
 opt.ignorecase = true
 opt.smartcase = true
