@@ -82,17 +82,32 @@ return {
       -- Setup for Rust
       lspconfig.rust_analyzer.setup {}
 
-      -- Setup for 
+      -- Setup for Java(Type)Script and CSS
+      -- `npm install -g typescript typescript-language-server`
+      -- See https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#ts_ls
       lspconfig.ts_ls.setup {}
+
+      -- `npm i -g vscode-langservers-extracted`
+      -- See https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#cssls
+      lspconfig.cssls.setup {}
+
+      -- `npm install -g cssmodules-language-server`
+      -- See https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#cssmodules_ls
       lspconfig.cssmodules_ls.setup {}
-      lspconfig.css_variables.setup {}
+
+      -- `npm install -g @tailwindcss/language-server`
+      -- See https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#tailwindcss
+      lspconfig.tailwindcss.setup {}
+
+      -- See https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#purescriptls
+      lspconfig.purescriptls.setup {}
 
       -- Setup Global diagnostic config
       vim.diagnostic.config {
         virtual_text = false,
         signs = false,
         update_in_insert = false,
-        under_line = false,
+        underline = false,
         severity_sort = false,
       }
 
@@ -110,6 +125,7 @@ return {
         end
       })
 
+      -- Keymaps
       vim.keymap.set('n', ']o', vim.diagnostic.open_float)
       vim.keymap.set('n', ']s', print_count_of_severities)
       vim.keymap.set('n', ']]', vim.diagnostic.goto_next)
@@ -152,6 +168,6 @@ return {
         desc = "Quickfix List (Trouble)",
       },
     },
-  } 
+  }, 
 }
 
