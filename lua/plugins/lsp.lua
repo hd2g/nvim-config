@@ -116,10 +116,35 @@ return {
       lspconfig.rust_analyzer.setup {}
 
       -- Setup for Java(Type)Script and CSS
+      local is_deno_project = function()
+        local deno_files = { 'deno.json', 'deno.jsonc', 'deno.lock' }
+
+        for _, filepath in ipairs(deno_files) do
+          filepath = table.concat({ vim.fn.getcwd(), filepath }, '/')
+
+          if vim.uv.fs_stat(filepath) ~= nil then return true end
+        end
+
+        return false
+      end
+
       -- `npm install -g typescript typescript-language-server`
       -- See https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#ts_ls
-      lspconfig.ts_ls.setup {}
-      lspconfig.eslint.setup {}
+      lspconfig.denols.setup {
+        settings = {
+          enable = is_deno_project(),
+        },
+      }
+      lspconfig.ts_ls.setup {
+        settings = {
+          enable = not is_deno_project(),
+        },
+      }
+      lspconfig.eslint.setup {
+        settings = {
+          enable = not is_deno_project(),
+        },
+      }
 
       -- `npm i -g vscode-langservers-extracted`
       -- See https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#cssls
