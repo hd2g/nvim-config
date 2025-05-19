@@ -25,6 +25,12 @@ map('i', '<C-b>', '<Left>')
 map('n', '<leader>o', '<cmd>only<cr>')
 map('n', '<S-w>', '<cmd>write<cr>')
 map('n', '<S-q>', '<cmd>quit<cr>')
+map('n', '<leader>w', '<cmd>write<cr>')
+map('n', '<leader>q', '<cmd>quit<cr>')
 
 map('n', '(', '<cmd>bp<cr>')
 map('n', ')', '<cmd>bn<cr>')
+
+map('n', '<S-h>', '0')
+map('n', '<S-l>', '$')
+
