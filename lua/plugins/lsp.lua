@@ -81,7 +81,28 @@ return {
      'hrsh7th/cmp-nvim-lsp',
     },
     config = function()
-      require("cmp").setup{}
+      local cmp = require("cmp")
+      cmp.setup {
+        snippet = {
+          expand = function(args)
+            vim.fn["vsnip#anonymous"](args.body)
+          end,
+        },
+        sources = {
+          { name = "nvim_lsp" },
+          { name = "path" },
+        },
+        mapping = cmp.mapping.preset.insert({
+          ["<C-p>"] = cmp.mapping.select_prev_item(),
+          ["<C-n>"] = cmp.mapping.select_next_item(),
+          ["<C-l>"] = cmp.mapping.complete(),
+          ["<C-e>"] = cmp.mapping.abort(),
+          ["<CR>"] = cmp.mapping.confirm { select = true },
+        }),
+        experimental = {
+          ghost_text = false,
+        },
+      }
 
       local lspconfig = require("lspconfig")
 
@@ -135,6 +156,7 @@ return {
       vim.keymap.set('n', ']s', print_count_of_severities)
       vim.keymap.set('n', ']]', vim.diagnostic.goto_next)
       vim.keymap.set('n', '[[', vim.diagnostic.goto_prev)
+      vim.keymap.set('n', 'ga', vim.lsp.buf.code_action)
       vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
       vim.keymap.set('n', 'gr', vim.lsp.buf.references)
       vim.keymap.set('n', '<S-k>', vim.lsp.buf.hover)
