@@ -61,6 +61,18 @@ function print_count_of_severities(opts, bufnr, line_nr, client_id)
   return msg, count_of_errors
 end
 
+function hyokkori()
+  local msg, count_of_errors = print_count_of_severities()
+
+  if msg == "" then
+    vim.cmd [[Trouble diagnostics close]]
+  elseif count_of_errors > 0 then
+    vim.cmd [[Trouble diagnostics open]]
+  else
+    -- Nop
+  end
+end
+
 return {
   {
     "neovim/nvim-lspconfig",
@@ -111,25 +123,21 @@ return {
         severity_sort = false,
       }
 
-      vim.api.nvim_create_autocmd({ 'BufWritePost' }, {
-        callback = function()
-          local msg, count_of_errors = print_count_of_severities()
-
-          if msg == "" then
-            vim.cmd [[Trouble diagnostics close]]
-          elseif count_of_errors > 0 then
-            vim.cmd [[Trouble diagnostics open]]
-          else
-            -- Nop
-          end
-        end
-      })
+      -- FIXME:echoじゃなくてprompt?みたいになっちゃう
+      -- キー入力待ちしたくない
+      -- vim.api.nvim_create_autocmd({ 'BufWritePost' }, {
+      --   callback = hyokkori
+      -- })
 
       -- Keymaps
+      vim.keymap.set('n', '<S-b>', hyokkori)
       vim.keymap.set('n', ']o', vim.diagnostic.open_float)
       vim.keymap.set('n', ']s', print_count_of_severities)
       vim.keymap.set('n', ']]', vim.diagnostic.goto_next)
       vim.keymap.set('n', '[[', vim.diagnostic.goto_prev)
+      vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
+      vim.keymap.set('n', 'gr', vim.lsp.buf.references)
+      vim.keymap.set('n', '<S-k>', vim.lsp.buf.hover)
     end,
   },
   {
