@@ -31,6 +31,6 @@ map('n', '<leader>q', '<cmd>quit<cr>')
 map('n', '(', '<cmd>bp<cr>')
 map('n', ')', '<cmd>bn<cr>')
 
-map('n', '<S-h>', '0')
+map('n', '<S-h>', '^')
 map('n', '<S-l>', '$')
 
