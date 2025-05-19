@@ -119,6 +119,7 @@ return {
       -- `npm install -g typescript typescript-language-server`
       -- See https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#ts_ls
       lspconfig.ts_ls.setup {}
+      lspconfig.eslint.setup {}
 
       -- `npm i -g vscode-langservers-extracted`
       -- See https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#cssls
