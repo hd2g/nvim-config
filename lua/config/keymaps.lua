@@ -21,6 +21,8 @@ map('n', '<C-w><C-l>', '<cmd>vertical resize +4<cr>')
 
 map('i', '<C-f>', '<Right>')
 map('i', '<C-b>', '<Left>')
+map('i', '<C-e>', '<esc>A')
+map('i', '<C-a>', '<esc>I')
 
 map('n', '<leader>o', '<cmd>only<cr>')
 map('n', '<S-w>', '<cmd>write<cr>')
