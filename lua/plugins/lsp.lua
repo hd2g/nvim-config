@@ -190,6 +190,7 @@ return {
       vim.keymap.set('n', 'ga', vim.lsp.buf.code_action)
       vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
       vim.keymap.set('n', 'gr', vim.lsp.buf.references)
+      vim.keymap.set('n', 'gf', vim.lsp.buf.format)
       vim.keymap.set('n', '<S-k>', vim.lsp.buf.hover)
     end,
   },
