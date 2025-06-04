@@ -114,6 +114,8 @@ return {
       -- Setup for Golang
       lspconfig.gopls.setup {}
 
+      lspconfig.ocamllsp.setup {}
+
       -- Setup for Lua
       -- lspconfig.lua_ls.setup {}
 
