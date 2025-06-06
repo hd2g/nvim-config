@@ -9,7 +9,12 @@ return {
   -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
   lazy = false,
   config = function()
-    require("oil").setup()
+    require("oil").setup {
+      view_options = {
+        show_hidden = true,
+      },
+    }
+
     vim.keymap.set('n', '<leader>e', '<cmd>e %:h<cr>')
     vim.keymap.set('n', '<leader>E', '<cmd>e .<cr>')
     vim.keymap.set('n', '-', '<cmd>Oil<cr>')
