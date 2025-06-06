@@ -119,6 +119,8 @@ return {
       -- Setup for Lua
       -- lspconfig.lua_ls.setup {}
 
+      lspconfig.zls.setup {}
+
       -- Setup for Rust
       lspconfig.rust_analyzer.setup {}
 
