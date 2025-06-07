@@ -17,7 +17,7 @@ map('t', 'jj', '<C-\\><C-n>')
 -- map('t', '<C-w>', '<C-\\><C-n><C-w>')
 -- map('t', '<C-h>', '<cmd>wimcmd h<cr>')
 -- map('t', '<C-j>', '<cmd>wimcmd j<cr>')
-map('t', '<C-k>', '<cmd>wimcmd k<cr>')
+-- map('t', '<C-k>', '<cmd>wimcmd k<cr>')
 -- map('t', '<C-l>', '<cmd>wimcmd l<cr>')
 
 -- Window Resizings
