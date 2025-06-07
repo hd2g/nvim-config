@@ -111,6 +111,8 @@ return {
 
       local lspconfig = require("lspconfig")
 
+      lspconfig.clangd.setup {}
+
       -- Setup for Golang
       lspconfig.gopls.setup {}
 
